@@ -27,11 +27,8 @@ jobs:
       - name: Configurar dependências do Flutter
         run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release
-
-      - name: Upload do APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: betpro-future-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Upload APK
+  uses: actions/upload-artifact@v3
+  with:
+    name: apk-artifact
+    path: app/build/outputs/apk/release/app-release.apk
