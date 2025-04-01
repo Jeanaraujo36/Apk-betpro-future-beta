@@ -1,4 +1,4 @@
-name: Gerar APK
+name: Build APK
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fazer checkout do repositório
+      - name: Checkout repositório
         uses: actions/checkout@v3
 
       - name: Configurar JDK
@@ -27,10 +27,10 @@ jobs:
       - name: Configurar dependências do Flutter
         run: flutter pub get
 
-      - name: Gerar APK
+      - name: Build APK
         run: flutter build apk --release
 
-      - name: Fazer upload do APK
+      - name: Upload do APK
         uses: actions/upload-artifact@v3
         with:
           name: betpro-future-apk
